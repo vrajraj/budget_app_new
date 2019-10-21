@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 10), () => print("Splash Done"));
+    Timer(Duration(seconds:5), () => Navigator.push(context,new MaterialPageRoute(builder: (context) => StartIntoApp())));
   }
 
   @override
@@ -150,34 +150,40 @@ class _StartIntoAppState extends State<StartIntoApp> {
 
     return new Scaffold(
       backgroundColor: Colors.white,
+      appBar: new AppBar(
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+        actions: <Widget>[Icon(Icons.search,color: Colors.black,size:35,)],
+        title: Text("Budget",style: TextStyle(color: Colors.black,fontSize: 20),),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            Container(
+              height: 150,
+              decoration: BoxDecoration(image: DecorationImage(
+                  image: NetworkImage('data:image/jpeg;base64,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')
+                  ,fit: BoxFit.cover ,)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  CircleAvatar(
+                    backgroundImage:AssetImage('images/chidambaram.jpg') ,
+                    radius: 50,
+
+                  ),
+                  Padding(padding: EdgeInsets.only(top:10,bottom: 10),child: Text('p.Chidambaram',style: TextStyle(color: Colors.black,fontSize: 25),),)
+                ],
+
+              ),
+            )
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 12.0, right: 12.0, top: 30.0, bottom: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(
-                      Icons.drag_handle,
-                      color: Colors.black,
-                      size: 30.0,
-                    ),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                      size: 30.0,
-                    ),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ),
+
 
             // ======================== M I N I S T R I E S ====================== //
             Padding(
