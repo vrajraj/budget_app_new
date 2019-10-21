@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'UI/SplashScreen.dart';
+import 'SplashScreen.dart';
+import './home page.dart';
 //import 'UI/Start.dart';
 
 void main(){
